@@ -18,5 +18,4 @@ RUN apt-add-gitlab Orange-OpenSource/gitlab-buildpkg-tools \
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq gitlab-buildpkg-tools apt-add-gitlab \
     && apt-get clean 
 
-#RUN rm -f /etc/apt/apt.conf.d/docker-clean
-
+RUN rm -f /etc/apt/apt.conf.d/docker-clean
