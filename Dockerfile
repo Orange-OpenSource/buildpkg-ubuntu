@@ -1,6 +1,8 @@
 FROM ubuntu:zesty
 MAINTAINER Christian Bayle <christian.bayle@orange.com>
 
+RUN sed -i 's/archive.ubuntu.com/old-releases.ubuntu.com/' /etc/apt/sources.list
+
 RUN apt-get update \
     && apt-get upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
