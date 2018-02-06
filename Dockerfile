@@ -1,7 +1,7 @@
 FROM ubuntu:yakkety
 MAINTAINER Christian Bayle <christian.bayle@orange.com>
 
-RUN sed -i 's/\(archive\|security\).ubuntu.com/old-releases.ubuntu.com/' /etc/apt/sources.list
+RUN sed -i 's/archive.ubuntu.com/old-releases.ubuntu.com/'  /etc/apt/sources.list
 
 RUN apt-get update \
     && apt-get upgrade -y \
