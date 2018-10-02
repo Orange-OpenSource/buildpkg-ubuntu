@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:cosmic
 MAINTAINER Christian Bayle <christian.bayle@orange.com>
 
 RUN apt-get update \
@@ -13,6 +13,7 @@ RUN apt-get update \
     && apt-get clean
 
 COPY apt-add-gitlab /usr/bin/
+
 RUN apt-add-gitlab Orange-OpenSource/gitlab-buildpkg-tools \
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq gitlab-buildpkg-tools apt-add-gitlab \
