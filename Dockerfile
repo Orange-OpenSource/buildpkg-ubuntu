@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:focal
 MAINTAINER Christian Bayle <christian.bayle@orange.com>
 
 RUN apt-get update \
