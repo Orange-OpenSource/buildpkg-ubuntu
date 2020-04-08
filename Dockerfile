@@ -3,7 +3,7 @@ MAINTAINER Christian Bayle <christian.bayle@orange.com>
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
         devscripts \
         build-essential \
         dh-make \
