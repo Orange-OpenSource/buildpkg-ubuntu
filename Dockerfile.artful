@@ -1,7 +1,10 @@
 FROM ubuntu:artful
 MAINTAINER Christian Bayle <christian.bayle@orange.com>
 
-RUN sed -i 's/archives.ubuntu.com/old-releases.ubuntu.com/g' /etc/apt/sources.list
+RUN sed -e 's/archive.ubuntu.com/old-releases.ubuntu.com/g' \
+        -e 's/security.ubuntu.com/old-releases.ubuntu.com/g' \
+        -i /etc/apt/sources.list
+
 RUN apt-get update \
     && apt-get upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -18,6 +21,4 @@ RUN apt-add-gitlab Orange-OpenSource/gitlab-buildpkg-tools \
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq gitlab-buildpkg-tools apt-add-gitlab \
     && apt-get clean 
-
-RUN rm -f /etc/apt/apt.conf.d/docker-clean
 
