@@ -1,6 +1,10 @@
 FROM ubuntu:eoan
 MAINTAINER Christian Bayle <christian.bayle@orange.com>
 
+RUN sed -e 's/archive.ubuntu.com/old-releases.ubuntu.com/g' \
+        -e 's/security.ubuntu.com/old-releases.ubuntu.com/g' \
+        -i /etc/apt/sources.list
+
 RUN apt-get update \
     && apt-get upgrade -y \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
